@@ -1,6 +1,6 @@
 from setuptools import setup
 
-setup(name='options_base',
+setup(name='ucf_options_base',
       version='1.3',
       description='Options data retrieval tool for weekly pitches',
       url='https://github.com/Texas-UCF/OptionsBase',
