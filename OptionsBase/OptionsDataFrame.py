@@ -23,8 +23,8 @@ class OptionsDataFrame:
         if underlying is not None:
             options_df = options_df[options_df['underlying'].apply(lambda u: u in underlying)]
 
-        options_df = options_df[options_df['date'] > start]
-        options_df = options_df[options_df['date'] < end]
+        options_df = options_df[options_df['date'] >= start]
+        options_df = options_df[options_df['date'] <= end]
 
         self.options_df = options_df
 
@@ -57,7 +57,8 @@ class OptionsDataFrame:
         :param start: start date for the minimum of the date range
         :param end: end date for the maximum of the date range
         """
-        self.options_df = self.options_df[self.options_df['date'] < end & self.options_df['date'] > start]
+        self.options_df = self.options_df[self.options_df['date'] <= end]
+        self.options_df = self.options_df[self.options_df['date'] >= start]
 
     def filter_days_to_expiry(self, days):
         """
